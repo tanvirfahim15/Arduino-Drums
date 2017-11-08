@@ -32,7 +32,7 @@ void setup()
   pinMode(ledPin1, OUTPUT);
   pinMode(ledPin2, OUTPUT);
   
-  play();
+ // play();
 }
 
 void loop()
@@ -41,12 +41,17 @@ void loop()
   int val = analogRead(analogPin0);
   if(val>20){
     Serial.println(val);
-    delay(500);
+    
+    digitalWrite(ledPin2, HIGH);
+    delay(100);
+    digitalWrite(ledPin2, LOW);
   }
   val = analogRead(analogPin1);
   if(val>20){
     Serial.println(-val);
+    digitalWrite(ledPin1, HIGH);
     delay(100);
+    digitalWrite(ledPin1, LOW);
   }
 }
 void play(){
